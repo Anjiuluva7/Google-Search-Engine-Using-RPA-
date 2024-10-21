@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <form id="searchForm">
+        <input type="text" id="searchQuery" placeholder="Enter search query">
+        <button type="submit">Search</button>
+    </form>
+
+    <table id="resultsTable" border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Snippet</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchQuery').value;
+
+            // Mocking search result data (replace this with actual data from your RPA tool)
+            const mockResults = [
+                { title: 'Result 1', link: 'http://example.com/1', snippet: 'This is a snippet for result 1' },
+                { title: 'Result 2', link: 'http://example.com/2', snippet: 'This is a snippet for result 2' },
+                { title: 'Result 3', link: 'http://example.com/3', snippet: 'This is a snippet for result 3' },
+            ];
+
+            displayResults(mockResults);
+        });
+
+        function displayResults(results) {
+            const tableBody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Clear previous results
+
+            results.forEach(result => {
+                const row = tableBody.insertRow();
+                const titleCell = row.insertCell(0);
+                const linkCell = row.insertCell(1);
+                const snippetCell = row.insertCell(2);
+
+                titleCell.textContent = result.title;
+                linkCell.innerHTML = `<a href="${result.link}" target="_blank">${result.link}</a>`;
+                snippetCell.textContent = result.snippet;
+            });
+        }
+    </script>
+
+</body>
+</html>
