@@ -1,0 +1,27 @@
+Features:
+Print options for results
+Dark mode light mode toggle
+New user register
+Login-logout feature
+
+
+Libraries:
+
+pip install Flask
+pip install selenium
+pip install webdriver-manager
+pip install Werkzeug==2.2.2
+pip install selectolax
+pip install selenium-stealth
+#is we we try again and again in google results, the googel will think that we are robots, adn google will block our ip
+#to not get blocked we will use selenium-stealth
+
+
+flask run 
+#the flask is a website builder for python, and python will display the website if it has only the name as app
+#the rules for python is:
+the python file name shoudl be app.py
+adn the html files shoudl be in the folder named "templates"
+
+
+to quit: ctrl+c

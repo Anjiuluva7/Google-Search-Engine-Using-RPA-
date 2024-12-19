@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1.0" />
+    <title>QueryBot | Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+        ul {
+          list-style-type: circle;
+        }
+        ol {
+          list-style-type: decimal;
+        }
+      }
+    </style>
+</head>
+
+<body class="flex flex-col justify-between h-screen">
+    <div>
+        <p class="text-xl font-bold text-center text-green-500">
+            GeeksforGeeks Chatbot - Gemini
+        </p>
+        <div class="overflow-y-auto" style="max-height: 80vh">
+            <div id="messageHolder" class="flex flex-col m-4"></div>
+        </div>
+    </div>
+    <div class="flex flex-row m-4">
+        <input type="text" class="flex-1 border rounded-md m-2 border-green-600 
+               p-2 outline-none ring-2 ring-green-600 
+               border-transparent" placeholder="Chat..." name="chat" id="chat" />
+        <button id="btn" class="m-2 bg-blue-500 p-2 
+                              rounded-md text-white">
+            Send
+        </button>
+    </div>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://cdn.jsdelivr.net/npm/@google/generative-ai/+esm"
+        }
+      }
+    </script>
+    <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QueryBot | Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <style>
+        @layer base {
+            ul {
+                list-style-type: circle;
+            }
+
+            ol {
+                list-style-type: decimal;
+            }
+        }
+
+        .message-bubble {
+            max-width: 75%;
+            padding: 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .message-bubble.user {
+            background-color: #DCF8C6;
+            align-self: flex-end;
+        }
+
+        .message-bubble.bot {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col h-screen bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-green-600 text-white p-4 shadow-lg">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex justify-center items-center">
+                <span class="text-xl font-bold">G</span>
+            </div>
+            <div>
+                <p class="text-lg font-semibold">QueryBot Chatbot</p>
+                <p class="text-sm">Your AI assistant</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="flex flex-col justify-between flex-1 overflow-hidden">
+        <div class="flex-1 overflow-y-auto p-4 space-y-4" id="messageHolder">
+            <!-- Messages will be injected here -->
+        </div>
+
+        <!-- Chat Input Section -->
+        <div class="flex items-center bg-white p-2 border-t border-gray-200">
+            <input type="text" id="chat" class="flex-1 p-3 border rounded-lg border-green-600 focus:ring-2 focus:ring-green-500 outline-none" placeholder="Type a message..." />
+            <button id="btn" class="ml-2 p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                <span>Send</span>
+            </button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://cdn.jsdelivr.net/npm/@google/generative-ai/+esm"
+            }
+        }
+    </script>
+    <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>

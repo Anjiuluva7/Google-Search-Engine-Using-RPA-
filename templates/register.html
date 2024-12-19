@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Query Automation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f1f1f1;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: flex-start; /* Align items at the top */
+            align-items: center; /* Center items horizontally */
+            height: 100vh;
+        }
+    
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #50e3c2, #f7b731);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            width: 100%; /* Ensure it takes full width */
+        }
+    
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+    
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+    
+        .register-container {
+            background-color: white;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            margin-top: 40px; /* Add space between the hero section and register container */
+        }
+    
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <section class="hero-section">
+        <h1>Welcome to QueryBot Automation</h1>
+        <p>Your go-to tool for finding the best links quickly and efficiently using RPA technology.</p>
+        <a href="#registerr" class="cta-button">Register</a>
+    </section>
+    <br>
+
+
+    <div class="register-container" id="registerr">
+        <h2>Register</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <select name="who_are_you" required>
+                <option value="student">Student</option>
+                <option value="workingProfessional">Working Professional</option>
+                <option value="tech">Tech</option>
+            </select>
+            <select name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <div class="footer">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

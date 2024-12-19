@@ -1,0 +1,397 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5a623, #f7b731, #f8e71c, #50e3c2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p.tagline {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #50e3c2;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #50e3c2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #34bfa3;
+        }
+
+        /* Logout Button Style */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff4b3a;
+        }
+
+
+        .divider {
+            margin: 30px 0;
+            border-top: 1px solid #ddd;
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .caption {
+            font-size: 1rem;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+
+            input[type="submit"] {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+
+    <div class="wrapper">
+        <h1>Welcome to Query Automation with RPA</h1>
+        <p class="tagline">Discover the Top 10 Links with a Simple Search</p>
+
+        <div class="form-container">
+            <form method="POST" action="/extract_links">
+                <div class="form-group">
+                    <input type="text" name="search_key" id="search_key" placeholder="Enter search key" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search" name="action">
+                </div>
+
+                <div >
+                    <a href="/" class="chatbtn">Chat with out Bot</a>
+                </div>
+
+
+            </form>
+        </div>
+
+        <p class="caption">Your go-to tool for finding the best links quickly and efficiently!</p>
+    </div>
+
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5a623, #f7b731, #f8e71c, #50e3c2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p.tagline {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #50e3c2;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #50e3c2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #34bfa3;
+        }
+
+        /* Logout Button Style */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff4b3a;
+        }
+
+        /* Chat with Bot Button Style */
+        .chatbtn {
+            display: inline-block;
+            padding: 14px 20px;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .chatbtn:hover {
+            background-color: #ff4b3a;
+        }
+
+        .divider {
+            margin: 30px 0;
+            border-top: 1px solid #ddd;
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .caption {
+            font-size: 1rem;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+
+            input[type="submit"] {
+                font-size: 16px;
+            }
+
+            .chatbtn {
+                font-size: 16px;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+
+    <div class="wrapper">
+        <h1>Welcome to Query Automation with RPA</h1>
+        <p class="tagline">Discover the Top 10 Links with a Simple Search</p>
+
+        <div class="form-container">
+            <form method="POST" action="/extract_links">
+                <div class="form-group">
+                    <input type="text" name="search_key" id="search_key" placeholder="Enter search key" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search" name="action">
+                </div>
+            </form>
+
+            <!-- Chat with Bot Button -->
+            <a href="/chat" class="chatbtn">Chat with AI Bot</a>
+        </div>
+
+        <p class="caption">Your go-to tool for finding the best links quickly and efficiently!</p>
+    </div>
+
+</body>
+
+</html>
+

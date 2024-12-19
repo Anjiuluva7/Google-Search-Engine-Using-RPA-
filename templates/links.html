@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Automation - Extracted Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Light Mode Default Styles */
+        :root {
+            --background-color: #f9f9f9;
+            --card-background-color: #fff;
+            --card-box-shadow: rgba(0, 0, 0, 0.1);
+            --text-color: #333;
+            --link-color: #4e9aff;
+            --card-hover-color: rgba(0, 0, 0, 0.2);
+            --back-link-bg-color: #4e9aff;
+            --button-bg-color: #4e9aff;
+            --hover-bg-color: #3d81d6;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --background-color: #181818;
+            --card-background-color: #2e2e2e;
+            --card-box-shadow: rgba(255, 255, 255, 0.1);
+            --text-color: #ddd;
+            --link-color: #9ecbff;
+            --card-hover-color: rgba(255, 255, 255, 0.2);
+            --back-link-bg-color: #4e9aff;
+            --button-bg-color: #3d81d6;
+            --hover-bg-color: #2e6fbb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .search-query {
+            font-size: 1.5rem;
+            color: var(--link-color);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--card-background-color);
+            box-shadow: 0 4px 10px var(--card-box-shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--card-hover-color);
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .card .metadata {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+            white-space: normal;
+        }
+
+        .card .link {
+            font-size: 1rem;
+            color: var(--link-color);
+            text-decoration: none;
+            word-wrap: break-word;
+            margin-bottom: 15px;
+        }
+
+        .card .link:hover {
+            color: var(--hover-bg-color);
+        }
+
+        .back-link {
+            font-size: 1rem;
+            color: #fff;
+            background-color: var(--back-link-bg-color);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--button-bg-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-btn:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        .print-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #f0ad4e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .print-btn:hover {
+            background-color: #ec971f;
+        }
+
+        .print-btn i {
+            margin-right: 8px;
+        }
+
+        /* Logout Button Style */
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff4b3a;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+
+    <h1>Query Automation - Extracted Results</h1>
+
+    <!-- Display Search Query -->
+    <div class="search-query">Search for: "{{ search_query }}"</div>
+    <div class="form-group mt-4">
+        <button onclick="window.location.href='/chat'" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 px-2">
+            Chat with our Bot
+        </button>
+    </div>
+    
+    
+    
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="toggle-btn" id="darkModeToggle">Dark Mode</button>
+
+    <button class="print-btn" onclick="window.print()">Print 🖨️</button>
+
+    <!-- Container for Cards -->
+    <div class="card-container">
+        {% for idx, result in results %}
+        <div class="card">
+            <!-- SL No -->
+            <div class="slno">SL No: {{ idx }}</div>
+
+            <!-- Title -->
+            <div class="title">{{ result['title'] }}</div>
+
+            <!-- Image -->
+            {% if result['image_url'] %}
+            <img src="{{ result['image_url'] }}" alt="Image">
+            {% else %}
+            <p>No Image</p>
+            {% endif %}
+
+            <!-- Metadata (Description) -->
+            <div class="metadata">{{ result['metadata'] }}</div>
+
+            <!-- Link -->
+            <a href="{{ result['link'] }}" target="_blank" class="link">{{ result['link'] }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/" class="back-link">Go Back to Home</a>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // Check localStorage for the theme preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = "Light Mode";
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            darkModeToggle.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+            localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+        });
+    </script>
+
+</body>
+
+</html>
